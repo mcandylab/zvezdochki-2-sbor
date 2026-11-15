@@ -526,6 +526,11 @@
       document.getElementById("shown-count").textContent = `Показано: ${visible.length} из ${children.length}`;
     }
 
+    function decodeFile(content) {
+      const bytes = Uint8Array.from(atob(content.replace(/\n/g, "")), character => character.charCodeAt(0));
+      return new TextDecoder().decode(bytes);
+    }
+
     async function loadData() {
       const initialLoad = children.length === 0;
       if (initialLoad) {
@@ -533,9 +538,13 @@
         emptyElement.style.display = "block";
       }
       try {
-        const response = await fetch(`https://raw.githubusercontent.com/mcandylab/zvezdochki-2-sbor/main/data.json?t=${Date.now()}`, { cache: "no-store" });
+        const response = await fetch(`https://api.github.com/repos/mcandylab/zvezdochki-2-sbor/contents/data.json?ref=main&t=${Date.now()}`, {
+          cache: "no-store",
+          headers: { "Accept": "application/vnd.github+json" }
+        });
         if (!response.ok) throw new Error("Data request failed");
-        const data = await response.json();
+        const file = await response.json();
+        const data = JSON.parse(decodeFile(file.content));
         children = data.children || [];
         payments = data.payments || {};
         document.getElementById("updated-at").textContent = `Обновлено ${data.updated}`;
@@ -554,7 +563,7 @@
     document.addEventListener("visibilitychange", () => { if (!document.hidden) loadData(); });
     window.addEventListener("focus", loadData);
     loadData();
-    setInterval(loadData, 15000);
+    setInterval(loadData, 30000);
   </script>
 </body>
 </html>

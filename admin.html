@@ -328,7 +328,7 @@
         });
         if (!result.content || !result.content.sha) throw new Error("No file SHA");
         dirty = false;
-        saveStatus.textContent = "Сохранено. У родителей отметки обновятся автоматически в течение 15 секунд.";
+        saveStatus.textContent = "Сохранено. У родителей отметки обновятся автоматически в течение 30 секунд.";
       } catch (error) {
         saveStatus.classList.add("error");
         saveStatus.textContent = error.status === 403 || error.status === 401
