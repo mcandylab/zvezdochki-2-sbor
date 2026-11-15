@@ -530,7 +530,7 @@
       emptyElement.textContent = "Загружаем список…";
       emptyElement.style.display = "block";
       try {
-        const response = await fetch("https://raw.githubusercontent.com/mcandylab/zvezdochki-2-sbor/main/data.json", { cache: "no-store" });
+        const response = await fetch(`https://raw.githubusercontent.com/mcandylab/zvezdochki-2-sbor/main/data.json?t=${Date.now()}`, { cache: "no-store" });
         if (!response.ok) throw new Error("Data request failed");
         const data = await response.json();
         children = data.children || [];
