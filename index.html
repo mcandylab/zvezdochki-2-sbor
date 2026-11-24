@@ -239,6 +239,16 @@
       background: #dcebe0;
       box-shadow: 0 8px 22px rgba(29, 59, 49, 0.10);
     }
+    .payment-alternate {
+      grid-column: 1 / -1;
+      border-style: dashed;
+      background: #fff;
+    }
+    .payment-alternate:hover {
+      transform: translateY(-1px);
+      border-color: var(--green);
+      box-shadow: 0 8px 22px rgba(29, 59, 49, 0.08);
+    }
     .payment-arrow {
       display: grid;
       flex: 0 0 auto;
@@ -477,7 +487,7 @@
           <p class="payment-kicker">Общий сбор</p>
           <h2 id="payment-title">Сумма на 1 ребёнка</h2>
           <strong class="payment-amount">3 435 ₽</strong>
-          <p class="payment-note"><strong>Пожалуйста, в комментарии к оплате укажите фамилию ребёнка.</strong><br>Собираем: 72 135 ₽ (21 семья × 3 435 ₽). Расходы: 72 100 ₽. Ссылка и QR-код откроют один и тот же сбор в Т-Банке.</p>
+          <p class="payment-note"><strong>Пожалуйста, в комментарии к оплате укажите фамилию ребёнка.</strong><br>Если Т-Банка нет, можно оплатить через Ozon — после оплаты пришлите чек с фамилией ребёнка.<br>Собираем: 72 135 ₽ (21 семья × 3 435 ₽). Расходы: 72 100 ₽.</p>
         </div>
         <div class="payment-options">
           <a class="payment-option payment-link" href="https://www.tbank-online.com/mybank/poolmoney/for/r_hmZgfDljhE.FBcIyQzkdG/jqzoo18958/" target="_blank" rel="noopener">
@@ -486,7 +496,7 @@
                 <path d="M10 14l4-4M8.2 16.8l-1.1 1.1a3.5 3.5 0 01-5-5l3-3a3.5 3.5 0 015 0M15.8 7.2l1.1-1.1a3.5 3.5 0 015 5l-3 3a3.5 3.5 0 01-5 0" transform="translate(-.1 .1) scale(.96)" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
               </svg>
             </span>
-            <div><strong>Оплатить по ссылке</strong><span>Нажмите здесь, чтобы перейти в Т-Банк</span></div>
+            <div><strong>Оплатить через Т-Банк</strong><span>Нажмите здесь, чтобы перейти к сбору</span></div>
             <span class="payment-arrow" aria-hidden="true">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -494,9 +504,22 @@
             </span>
           </a>
           <div class="payment-option payment-qr">
-            <div><strong>QR-код для оплаты</strong><span>Отсканируйте камерой телефона</span></div>
+            <div><strong>QR-код Т-Банка</strong><span>Отсканируйте камерой телефона</span></div>
             <img src="tbank-qr.png" alt="QR-код для оплаты в Т-Банке" width="360" height="360">
           </div>
+          <a class="payment-option payment-alternate" href="https://finance.ozon.ru/apps/sbp/ozonbankpay/7c520431-12a3-4354-a5c8-bcff601512f2" target="_blank" rel="noopener">
+            <span class="payment-icon" aria-hidden="true">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+                <path d="M10 14l4-4M8.2 16.8l-1.1 1.1a3.5 3.5 0 01-5-5l3-3a3.5 3.5 0 015 0M15.8 7.2l1.1-1.1a3.5 3.5 0 015 5l-3 3a3.5 3.5 0 01-5 0" transform="translate(-.1 .1) scale(.96)" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div><strong>Нет Т-Банка? Оплатить через Ozon</strong><span>Подойдёт любой банк. После оплаты пришлите чек с фамилией ребёнка.</span></div>
+            <span class="payment-arrow" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
         </div>
       </section>
 
