@@ -138,7 +138,7 @@
 
     .collections {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
     }
     .collection-card {
@@ -417,7 +417,7 @@
           <h1 id="page-title">Сборы нашей группы</h1>
           <p class="hero-text">Здесь можно посмотреть, на что собираем, оплатить общий сбор и увидеть отметку по своей семье.</p>
         </div>
-        <div class="hero-count"><strong>23</strong><span>семьи<br>в списке</span></div>
+        <div class="hero-count"><strong>21</strong><span>семья<br>в списке</span></div>
       </section>
 
       <section aria-labelledby="collections-title">
@@ -431,8 +431,8 @@
         <div>
           <p class="payment-kicker">Общий сбор</p>
           <h2 id="payment-title">Сумма на 1 ребёнка</h2>
-          <strong class="payment-amount">Будет позже</strong>
-          <p class="payment-note"><strong>Пожалуйста, в комментарии к оплате укажите фамилию ребёнка.</strong><br>Ссылка и QR-код откроют один и тот же сбор в Озоне.</p>
+          <strong class="payment-amount">3 435 ₽</strong>
+          <p class="payment-note"><strong>Пожалуйста, в комментарии к оплате укажите фамилию ребёнка.</strong><br>Собираем: 72 135 ₽ (21 семья × 3 435 ₽). Расходы: 72 100 ₽. Ссылка и QR-код откроют один и тот же сбор в Озоне.</p>
         </div>
         <div class="payment-options">
           <div class="payment-option">
@@ -481,11 +481,12 @@
 
   <script>
     const collections = [
-      { title: "День рождения Юлии Владимировны", description: "Сертификат и цветы", goal: 5000 },
-      { title: "Подарки детям на Новый год", description: "Подарки выберем позже", goal: null },
-      { title: "Дед Мороз", description: "Подробности появятся позже", goal: null },
-      { title: "Подарки воспитателям на Новый год", description: "Подарки выберем позже", goal: null },
-      { title: "Подарки смежникам", description: "Подарки выберем позже", goal: null, tentative: true }
+      { title: "День рождения Юлии Владимировны", description: "Сертификат 5 000 ₽ и цветы 2 000 ₽", goal: 7000 },
+      { title: "Подарки воспитателям на Новый год", description: "3 сертификата по 3 000 ₽ и конфеты 1 500 ₽", goal: 10500 },
+      { title: "Подарки смежникам", description: "5 подарков по 2 000 ₽", goal: 10000 },
+      { title: "Дед Мороз", description: "Стоимость выступления", goal: 6000 },
+      { title: "Подарки детям на Новый год", description: "22 подарка по 1 300 ₽", goal: 28600 },
+      { title: "Хознужды и декор перед Новым годом", description: "Общие расходы группы", goal: 10000 }
     ];
 
     let children = [];
@@ -507,6 +508,7 @@
     `).join("");
 
     function renderPeople() {
+      document.querySelector(".hero-count strong").textContent = children.length;
       const query = searchElement.value.trim().toLocaleLowerCase("ru");
       const visible = children.filter(name => name.toLocaleLowerCase("ru").includes(query));
 
