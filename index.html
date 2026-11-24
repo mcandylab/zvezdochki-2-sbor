@@ -437,8 +437,7 @@
       .person-row { grid-template-columns: minmax(0, 1fr) auto; gap: 12px; padding: 12px 0; }
       .status { grid-column: 2; grid-row: 1; }
       .date { display: none; }
-      .list-footer { padding: 14px 20px 18px; }
-      .list-footer span:last-child { display: none; }
+      .list-footer { align-items: center; flex-direction: column; padding: 14px 20px 18px; text-align: center; }
     }
 
     @media (max-width: 390px) {
@@ -653,7 +652,7 @@
     document.addEventListener("visibilitychange", () => { if (!document.hidden) loadData(); });
     window.addEventListener("focus", loadData);
     loadData();
-    setInterval(loadData, 30000);
+    setInterval(loadData, 15000);
   </script>
 </body>
 </html>
