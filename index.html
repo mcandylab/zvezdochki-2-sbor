@@ -229,10 +229,26 @@
       background: #fff;
     }
     a.payment-option { text-decoration: none; }
-    a.payment-option:hover {
+    .payment-link {
+      border-color: var(--green);
+      background: var(--green-soft);
+    }
+    .payment-link:hover {
       transform: translateY(-1px);
       border-color: var(--green);
-      box-shadow: 0 8px 22px rgba(29, 59, 49, 0.08);
+      background: #dcebe0;
+      box-shadow: 0 8px 22px rgba(29, 59, 49, 0.10);
+    }
+    .payment-arrow {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-left: auto;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--green);
     }
     .payment-qr { justify-content: space-between; }
     .payment-qr img {
@@ -456,7 +472,12 @@
                 <path d="M10 14l4-4M8.2 16.8l-1.1 1.1a3.5 3.5 0 01-5-5l3-3a3.5 3.5 0 015 0M15.8 7.2l1.1-1.1a3.5 3.5 0 015 5l-3 3a3.5 3.5 0 01-5 0" transform="translate(-.1 .1) scale(.96)" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
               </svg>
             </span>
-            <div><strong>Ссылка на оплату</strong><span>Перейти к сбору в Озоне</span></div>
+            <div><strong>Оплатить по ссылке</strong><span>Нажмите здесь, чтобы перейти в Ozon</span></div>
+            <span class="payment-arrow" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
           </a>
           <div class="payment-option payment-qr">
             <div><strong>QR-код для оплаты</strong><span>Отсканируйте камерой телефона</span></div>
